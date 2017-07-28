@@ -1,0 +1,46 @@
+---
+title: "Yearly Sun Spot Numbers"
+author: "Omyung Richard Kwon"
+date: "July 28, 2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Yearly Sun Spot Numbers
+
+This Shiny web application contains a simple plot of yearly sun spot numbers from dataset **sunspot.year**.
+
+This dataset contains the yearly sun spot numbers from 1700 to 1988 (rounded to one digit).
+
+The application is located at below location:
+<https://rkwon.shinyapps.io/YearlySunSpot/>
+
+## sunspot.year Data Set
+
+```{r echo=TRUE}
+str(sunspot.year)
+
+summary(sunspot.year)
+
+```
+
+## Sun Spot Plot
+
+Key Capabilities:  
+
+- A time series line plot of number of sun spots (y-axis) vs. years (x-axis)  
+- Slide two buttons to select the MIN and MAX years for the Plot  
+- Select/Deselect the **Show/Hide Regression Line** to show the appropriate linear regression line for the selected years  
+
+## Sun Spot Plot
+
+```{r pressure}
+plot(time(sunspot.year), sunspot.year, type="l", xlab="Year",
+     ylab="Number of Sun Spots")
+
+abline(lm(sunspot.year~time(sunspot.year)), col="red", lwd=2)
+```
+

@@ -21,7 +21,7 @@ shinyServer(function(input, output) {
     x <- time(newsunspot)
     y <- newsunspot
     
-    plot(x, y, xlab="Year", ylab="Number of Sun Spots")
+    plot(x, y, type="l", xlab="Year", ylab="Number of Sun Spots")
     
     if (input$show_lm) {
         abline(lm(y ~ x), col="red", lwd=2)
